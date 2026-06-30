@@ -519,15 +519,15 @@ function finishGame({ won }) {
 function getAchievements() {
   const metrics = getSessionMetrics();
   const rules = [
-    ["quietOperator", metrics.sessionMinutes <= 20 && metrics.wins >= 4 && metrics.caseCost !== null && metrics.caseCost <= 2.5],
-    ["paidLinguist", metrics.sessionMinutes >= 60 && metrics.wins >= 10 && metrics.caseCost !== null && metrics.caseCost <= 5],
-    ["slackingWriter", metrics.sessionMinutes >= 120 && metrics.wins >= 8 && metrics.caseCost !== null && metrics.caseCost >= 4 && metrics.caseCost <= 7],
+    ["quietOperator", metrics.sessionMinutes <= 20 && metrics.wins >= 4 && metrics.caseCost !== null && metrics.caseCost <= 5],
+    ["paidLinguist", metrics.sessionMinutes >= 40 && metrics.wins >= 6 && metrics.caseCost !== null && metrics.caseCost <= 7],
+    ["slackingWriter", metrics.sessionMinutes >= 60 && metrics.wins >= 8 && metrics.caseCost !== null && metrics.caseCost <= 7],
     ["deskGollum", metrics.sessionMinutes >= 60 && metrics.inputAnswers <= 8],
-    ["stubbornRookie", metrics.inputAnswers >= 40 && metrics.wins <= 3],
+    ["stubbornRookie", metrics.inputAnswers >= 40 && metrics.wins <= 4],
     ["desertPioneer", metrics.games >= 3 && metrics.wins === 0],
-    ["bossBehind", metrics.sessionMinutes <= 8 && metrics.inputAnswers >= 8],
-    ["preciseSlacker", metrics.sessionMinutes >= 10 && metrics.sessionMinutes <= 45 && metrics.wins >= 3 && metrics.caseCost !== null && metrics.caseCost <= 3.5],
-    ["streakSlacker", metrics.bestStreak >= 5],
+    ["bossBehind", metrics.sessionMinutes <= 10 && metrics.inputAnswers >= 8],
+    ["preciseSlacker", metrics.sessionMinutes >= 10 && metrics.sessionMinutes <= 45 && metrics.wins >= 4 && metrics.caseCost !== null && metrics.caseCost <= 5],
+    ["streakSlacker", metrics.bestStreak >= 3],
     ["idiomGuard", metrics.losses >= 5 && metrics.inputAnswers >= 35],
     ["tempWorker", metrics.wins >= 1 && metrics.wins <= 2 && metrics.caseCost !== null && metrics.caseCost >= 6],
     ["checkinSlacker", metrics.games >= 5 && metrics.successRate >= 0.3 && metrics.successRate <= 0.6],
