@@ -942,6 +942,7 @@ window.IDIOM_CONTENTS = {
 };
 
 window.ACHIEVEMENT_CONTENTS = {
+  paidIdiomAcademy: { title: "游历！带薪成语研究院", description: "第一份研究报告已提交，今天的薪水从四字词语里开始结算。" },
   quietOperator: { title: "闷声办大事", description: "20 分钟内连破多题，效率高得像在后台静默运行。" },
   paidLinguist: { title: "带薪语言学家", description: "在线时间够长，破案能力也稳，像把工位变成了语言实验室。" },
   slackingWriter: { title: "摸鱼文学家", description: "时间花得不少，成果也有，文学气息和摸鱼痕迹同时在线。" },
@@ -953,6 +954,7 @@ window.ACHIEVEMENT_CONTENTS = {
   streakSlacker: { title: "连胜型摸鱼犯", description: "连胜拉满，摸鱼也摸出了竞技状态。" },
   idiomGuard: { title: "四字词语保安", description: "失败不少，输入也不少，守住了四字词语的大门。" },
   tempWorker: { title: "成语界临时工", description: "偶尔破案，但成本偏高，还在试用期边缘徘徊。" },
+  clutchSolver: { title: "差点就寄了", description: "第九条命破案！最后还是把答案从Deadline捞了回来。" },
   checkinSlacker: { title: "摸鱼打卡员", description: "局数够多，胜率居中，像每天按时来摸一下。" },
   normalWorker: { title: "正常上班人", description: "一切指标都很正常，正常得非常像在正常上班。" },
 };

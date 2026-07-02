@@ -519,6 +519,7 @@ function finishGame({ won }) {
 function getAchievements() {
   const metrics = getSessionMetrics();
   const rules = [
+    ["paidIdiomAcademy", metrics.games === 1],
     ["quietOperator", metrics.sessionMinutes <= 20 && metrics.wins >= 4 && metrics.caseCost !== null && metrics.caseCost <= 5],
     ["paidLinguist", metrics.sessionMinutes >= 40 && metrics.wins >= 6 && metrics.caseCost !== null && metrics.caseCost <= 7],
     ["slackingWriter", metrics.sessionMinutes >= 60 && metrics.wins >= 8 && metrics.caseCost !== null && metrics.caseCost <= 7],
@@ -530,6 +531,7 @@ function getAchievements() {
     ["streakSlacker", metrics.bestStreak >= 3],
     ["idiomGuard", metrics.losses >= 5 && metrics.inputAnswers >= 35],
     ["tempWorker", metrics.wins >= 1 && metrics.wins <= 2 && metrics.caseCost !== null && metrics.caseCost >= 6],
+    ["clutchSolver", metrics.caseCost !== null && metrics.caseCost >= 9],
     ["checkinSlacker", metrics.games >= 5 && metrics.successRate >= 0.3 && metrics.successRate <= 0.6],
   ];
   const matched = rules.filter(([, passed]) => passed).map(([key]) => getAchievementContent(key));
