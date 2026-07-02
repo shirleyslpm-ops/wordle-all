@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.wrangler/
+caici-all.zip
+资料（不要读取）/
+deploy/
+package.json
+package-lock.json
