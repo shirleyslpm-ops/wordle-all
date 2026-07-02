@@ -495,7 +495,7 @@ function finishGame({ won }) {
     sessionStats.currentStreak = 0;
   }
 
-  const achievements = getAchievements();
+  const achievements = getAchievements({ gameAttempts: guesses.length, gameWon: won });
   if (encounterAchievement) {
     achievements.unshift(encounterAchievement);
   }
@@ -516,7 +516,7 @@ function finishGame({ won }) {
   showResultDialog(currentResult);
 }
 
-function getAchievements() {
+function getAchievements({ gameAttempts = 0, gameWon = false } = {}) {
   const metrics = getSessionMetrics();
   const rules = [
     ["paidIdiomAcademy", metrics.games === 1],
@@ -531,7 +531,7 @@ function getAchievements() {
     ["streakSlacker", metrics.bestStreak >= 3],
     ["idiomGuard", metrics.losses >= 5 && metrics.inputAnswers >= 35],
     ["tempWorker", metrics.wins >= 1 && metrics.wins <= 2 && metrics.caseCost !== null && metrics.caseCost >= 6],
-    ["clutchSolver", metrics.caseCost !== null && metrics.caseCost >= 9],
+    ["clutchSolver", gameWon && gameAttempts >= 9],
     ["checkinSlacker", metrics.games >= 5 && metrics.successRate >= 0.3 && metrics.successRate <= 0.6],
   ];
   const matched = rules.filter(([, passed]) => passed).map(([key]) => getAchievementContent(key));
